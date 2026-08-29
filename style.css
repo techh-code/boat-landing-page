@@ -4,9 +4,12 @@
   --hover-color: rgb(107, 157, 174);
   --white-text: #ffffff;
   --blur-text: rgb(200, 200, 200);
-  --black-color:black;
+  --black-color: black;
   --card-color: rgba(255, 255, 255, 0.08);
-  --background-color: linear-gradient(90deg, rgba(2, 0, 36, 1) 14%, rgba(42, 83, 99, 1) 60%, rgba(74, 28, 87, 1) 99%);
+  --background-color: linear-gradient(90deg,
+      rgba(2, 0, 36, 1) 14%,
+      rgba(42, 83, 99, 1) 60%,
+      rgba(74, 28, 87, 1) 99%);
 }
 
 * {
@@ -31,7 +34,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  
 }
 
 .nav-links ul {
@@ -46,26 +48,22 @@ body {
   text-decoration: none;
   font-size: 20px;
 }
-.nav-links a:hover{
-  color: var(--button-color);
+
+.nav-links a:hover {
+  color: var(--white-text);
+  background-color: var(--button-color);
+  border: 2px solid var(--button-color);
+  border-radius: 10px;
+  padding: 5px 10px;
+  transform: rotatey(0.5);
+  /* transition: 0.2s; */
 }
+
 .logo img {
   width: 90px;
   height: 90px;
   object-fit: contain;
-  
 }
-
-.nav-btn {
-  padding: 8px 16px;
-  background-color: var(--button-color);
-  border-radius: 6px;
-}
-.nav-btn:hover {
-  color: var(--white-text);
-  background-color: var(--hover-color);
-}
-
 .container {
   display: flex;
   justify-content: space-between;
@@ -86,22 +84,33 @@ body {
   margin-bottom: 30px;
 }
 
-.btn, .btn1 {
+.btn,
+.btn1 {
   color: var(--white-text);
   text-decoration: none;
   padding: 12px 24px;
   border-radius: 8px;
   display: inline-block;
+ transform: rotateY(0.5);
+ 
+ 
 }
-.btn1:hover{
+
+.btn1:hover {
   background-color: var(--button-color);
+ box-shadow: 0px 5px 10px 2px var(--hover-color);
+transform: rotateY(0.5);
 }
+
 .btn {
   background-color: var(--button-color);
 }
-.btn:hover{
+
+.btn:hover {
   background-color: var(--hover-color);
+  box-shadow: 0px 5px 15px 2px var(--hover-color);
 }
+
 .btn1 {
   background-color: var(--btn1-color);
   border: 2px solid var(--button-color);
@@ -109,13 +118,80 @@ body {
 }
 
 .images img {
+  position: relative;
+  z-index: 5;
+  /* Headphone hamesha crystal clear aur top par rahega */
   width: 380px;
+  height: 400px;
   object-fit: contain;
-  margin-right: 230px;
-  margin-top: -20px;
-
+  display: block;
+  margin: 0;
+  margin-top: -40px;
+  /* Purana margin-right: 230px hata diya */
+}
+.images {
+  position: relative;
+  display: inline-block;
+}
+.images::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 25px;
+  background: radial-gradient(ellipse at center, rgba(34, 33, 33, 0.75) 1%, rgba(0, 229, 255, 0.2) 40%, transparent 75%);
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: 1;
+  pointer-events: none;
 }
 
+.bg-edit {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Agar pura section left shift karna hai to margin use karein */
+  margin-right: 230px;
+}
+
+/* 1. Dots ko dur tak failane ke liye (Wider Spread) */
+.bg-edit::after {
+  content: "";
+  position: absolute;
+  inset: -20px -50px; /* Box boundaries ko charo taraf expand kiya */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1.2px, transparent 1.2px);
+  background-size: 16px 16px;
+  background-repeat: repeat;
+  margin-top: -40px;
+  
+  /* Ellipse area ko 85% 70% karke dur tak spread kiya */
+  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 45% 50%, #000 35%, transparent 90%);
+  mask-image: radial-gradient(ellipse 85% 70% at 45% 50%, #000 35%, transparent 90%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 2. Sound Wave ki length badhane ke liye (Wider Horizontal Stretch) */
+.bg-edit::before {
+  content: "";
+  position: absolute;
+  inset: 0 -50px; /* Left aur right side wave ko bada space diya */
+  background-image: url('wa1.png');
+  margin-top: -40px;
+  
+  /* 135% width se wave lambi ho jayegi aur 55% height se clean rahegi */
+  background-size: 135% 55%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.10;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* grid section */
 .grid-page {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -152,8 +228,8 @@ body {
 }
 
 .grid a {
-  border: 1px solid var(--blur-text); 
-  background-color: var(--button-color); 
+  border: 1px solid var(--blur-text);
+  background-color: var(--button-color);
   padding: 5px;
   color: var(--white-text);
   border-radius: 10px 10px;
@@ -161,7 +237,119 @@ body {
   font-weight: bold;
   font-size: 14px;
 }
+
 .grid a:hover {
-    background-color: var(--hover-color);
-    /* color: var(--black-color); */
+  background-color: var(--hover-color);
+  /* color: var(--black-color); */
 }
+
+.price-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  padding: 40px 80px;
+  margin-left: 10%;
+  height: 100%;
+  width: 1200px;
+}
+.cost{
+  /* position: relative; */
+  background: var(--card-color);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+}
+.cost h1{
+  text-align: center;
+  line-height: 0.5;
+}
+.cost h2{
+  font-weight: 100;
+  text-align: center;
+   line-height: 0.3;
+   font-size: 25px;
+}
+.cost h3{
+  font-weight: 100;
+    text-align: center;
+      line-height: 0.7;
+}
+.cost h4{
+  font-weight: 100;
+  letter-spacing: 0.9px;
+line-height: 1.7;
+margin-left: 30px;
+
+}
+  
+.cost p{
+  line-height: 1.2;
+  font-weight: 100;
+  font-size: 10px;
+    text-align:center;
+    background-color: var(--hover-color);
+    height: 60px;
+    width: 70px;
+    border-radius: 50px;
+    margin-top: -50px;
+    margin-left: 260px;
+    /* margin-right: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(
+  50% 0%, 65% 15%, 85% 15%, 85% 35%, 100% 50%, 
+  85% 65%, 85% 85%, 65% 85%, 50% 100%, 35% 85%, 
+  15% 85%, 15% 65%, 0% 50%, 15% 35%, 15% 15%, 35% 15%
+); 
+ }
+.cost p:hover{
+background-color: red;
+transition: 0.5s ease;
+}
+ .cost a {
+    display:block;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    font-weight: 100;
+    text-align:center;
+    text-decoration: none;
+    color: var(--white-text);
+    border: 1px solid var(--white-text);
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 150px;
+     transition: 0.3s ease;
+    background-color: var(--button-color);
+} 
+ .cost a:hover{
+  background-color: var(--hover-color);
+ 
+} 
+
+.support-cont{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 20px;
+justify-content: center;
+height: 100%;
+width: 1000px;
+margin-left: 16%;
+
+}
+.support-card{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+background-color:var(--card-color); 
+} 
