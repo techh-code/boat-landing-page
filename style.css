@@ -1,105 +1,155 @@
 :root {
   --button-color: rgb(57, 90, 118);
+
   --btn1-color: rgb(40, 42, 43);
+
   --hover-color: rgb(107, 157, 174);
+
   --white-text: #ffffff;
+
   --blur-text: rgb(200, 200, 200);
+
   --black-color: black;
+
   --card-color: rgba(255, 255, 255, 0.08);
-  --background-color: linear-gradient(90deg,
-      rgba(2, 0, 36, 1) 14%,
-      rgba(42, 83, 99, 1) 60%,
-      rgba(74, 28, 87, 1) 99%);
+
+  --background-color: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 14%,
+
+    rgba(42, 83, 99, 1) 60%,
+
+    rgba(74, 28, 87, 1) 99%
+  );
 }
 
 * {
   padding: 0;
+
   margin: 0;
+
   box-sizing: border-box;
+
   font-family: sans-serif;
 }
 
 body {
   background: var(--background-color);
+
   min-height: 100vh;
+
   color: var(--white-text);
 }
 
 .navbar {
   width: 100%;
+
   height: 70px;
+
   background: rgba(0, 0, 0, 0.2);
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
   padding: 0 40px;
 }
 
 .nav-links ul {
   display: flex;
+
   align-items: center;
+
   gap: 30px;
+
   list-style: none;
 }
 
 .nav-links a {
   color: var(--white-text);
+
   text-decoration: none;
+
   font-size: 20px;
 }
 
 .nav-links a:hover {
   color: var(--white-text);
+
   background-color: var(--button-color);
+
   border: 2px solid var(--button-color);
+
   border-radius: 10px;
+
   padding: 5px 10px;
+
   transform: rotatey(0.5);
+
   /* transition: 0.2s; */
 }
 
 .logo img {
   width: 90px;
+
   height: 90px;
+
   object-fit: contain;
 }
+
 .container {
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
   padding: 60px 80px;
 }
 
 .text h1 {
   font-size: 53px;
+
   margin-bottom: 20px;
+
   line-height: 1.2;
 }
 
 .text p {
   color: var(--blur-text);
+
   font-size: 18px;
+
   line-height: 1.5;
+
   margin-bottom: 30px;
 }
 
 .btn,
 .btn1 {
   color: var(--white-text);
+
   text-decoration: none;
+
   padding: 12px 24px;
+
   border-radius: 8px;
+
   display: inline-block;
- transform: rotateY(0.5);
- 
- 
+
+  transform: rotateY(0.5);
 }
 
 .btn1:hover {
   background-color: var(--button-color);
- box-shadow: 0px 5px 10px 2px var(--hover-color);
-transform: rotateY(0.5);
+
+  box-shadow: 0px 5px 10px 2px var(--hover-color);
+
+  transform: rotateY(0.5);
 }
 
 .btn {
@@ -108,113 +158,197 @@ transform: rotateY(0.5);
 
 .btn:hover {
   background-color: var(--hover-color);
+
   box-shadow: 0px 5px 15px 2px var(--hover-color);
 }
 
 .btn1 {
   background-color: var(--btn1-color);
+
   border: 2px solid var(--button-color);
+
   margin-left: 15px;
 }
 
 .images img {
   position: relative;
+
   z-index: 5;
+
   /* Headphone hamesha crystal clear aur top par rahega */
+
   width: 380px;
+
   height: 400px;
+
   object-fit: contain;
+
   display: block;
+
   margin: 0;
+
   margin-top: -40px;
+
   /* Purana margin-right: 230px hata diya */
 }
+
 .images {
   position: relative;
+
   display: inline-block;
 }
+
 .images::after {
   content: "";
+
   position: absolute;
+
   bottom: -20px;
+
   left: 50%;
+
   transform: translateX(-50%);
+
   width: 65%;
+
   height: 25px;
-  background: radial-gradient(ellipse at center, rgba(34, 33, 33, 0.75) 1%, rgba(0, 229, 255, 0.2) 40%, transparent 75%);
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(34, 33, 33, 0.75) 1%,
+    rgba(0, 229, 255, 0.2) 40%,
+    transparent 75%
+  );
+
   border-radius: 50%;
+
   filter: blur(10px);
+
   z-index: 1;
+
   pointer-events: none;
 }
 
 .bg-edit {
   position: relative;
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   /* Agar pura section left shift karna hai to margin use karein */
+
   margin-right: 230px;
 }
 
 /* 1. Dots ko dur tak failane ke liye (Wider Spread) */
+
 .bg-edit::after {
   content: "";
+
   position: absolute;
+
   inset: -20px -50px; /* Box boundaries ko charo taraf expand kiya */
-  background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1.2px, transparent 1.2px);
+
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.25) 1.2px,
+    transparent 1.2px
+  );
+
   background-size: 16px 16px;
+
   background-repeat: repeat;
+
   margin-top: -40px;
-  
+
   /* Ellipse area ko 85% 70% karke dur tak spread kiya */
-  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 45% 50%, #000 35%, transparent 90%);
-  mask-image: radial-gradient(ellipse 85% 70% at 45% 50%, #000 35%, transparent 90%);
+
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 70% at 45% 50%,
+    #000 35%,
+    transparent 90%
+  );
+
+  mask-image: radial-gradient(
+    ellipse 85% 70% at 45% 50%,
+    #000 35%,
+    transparent 90%
+  );
+
   z-index: 1;
+
   pointer-events: none;
 }
 
 /* 2. Sound Wave ki length badhane ke liye (Wider Horizontal Stretch) */
+
 .bg-edit::before {
   content: "";
+
   position: absolute;
+
   inset: 0 -50px; /* Left aur right side wave ko bada space diya */
-  background-image: url('wa1.png');
+
+  background-image: url("wa1.png");
+
   margin-top: -40px;
-  
+
   /* 135% width se wave lambi ho jayegi aur 55% height se clean rahegi */
-  background-size: 135% 55%; 
+
+  background-size: 135% 55%;
+
   background-position: center;
+
   background-repeat: no-repeat;
-  opacity: 0.10;
+
+  opacity: 0.1;
+
   z-index: 2;
+
   pointer-events: none;
 }
 
 /* grid section */
+
 .grid-page {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: 24px;
+
   padding: 40px 80px;
+
   margin-top: -50px;
 }
 
 .grid {
   background: var(--card-color);
+
   border-radius: 12px;
+
   padding: 20px;
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   text-align: center;
+
   gap: 12px;
 }
 
 .grid img {
   width: 100%;
+
   height: 160px;
+
   object-fit: cover;
+
   border-radius: 8px;
 }
 
@@ -224,132 +358,313 @@ transform: rotateY(0.5);
 
 .grid p {
   color: var(--blur-text);
+
   font-size: 14px;
 }
 
 .grid a {
   border: 1px solid var(--blur-text);
+
   background-color: var(--button-color);
+
   padding: 5px;
+
   color: var(--white-text);
+
   border-radius: 10px 10px;
+
   text-decoration: none;
+
   font-weight: bold;
+
   font-size: 14px;
 }
 
 .grid a:hover {
   background-color: var(--hover-color);
+
   /* color: var(--black-color); */
 }
 
-.price-container{
+.price-container {
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
   justify-content: center;
+
   align-items: stretch;
+
   gap: 24px;
+
   padding: 40px 80px;
+
   margin-left: 10%;
+
   height: 100%;
+
   width: 1200px;
 }
-.cost{
-  /* position: relative; */
+
+.cost {
+  position: relative;
+
   background: var(--card-color);
+
   border-radius: 12px;
+
   padding: 20px;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 24px;
+
   height: 100%;
 }
-.cost h1{
+
+.cost h1 {
   text-align: center;
+
   line-height: 0.5;
+  margin-top: 15px;
 }
-.cost h2{
+
+.cost h2 {
   font-weight: 100;
+
   text-align: center;
-   line-height: 0.3;
-   font-size: 25px;
+
+  line-height: 0.3;
+
+  font-size: 25px;
 }
-.cost h3{
+
+.cost h3 {
   font-weight: 100;
-    text-align: center;
-      line-height: 0.7;
+
+  text-align: center;
+
+  line-height: 0.7;
 }
-.cost h4{
+
+.cost h4 {
   font-weight: 100;
+
   letter-spacing: 0.9px;
-line-height: 1.7;
-margin-left: 30px;
 
+  line-height: 1.7;
+
+  margin-left: 30px;
 }
-  
-.cost p{
+
+.cost p {
+  position: absolute;
   line-height: 1.2;
+
   font-weight: 100;
+
   font-size: 10px;
-    text-align:center;
-    background-color: var(--hover-color);
-    height: 60px;
-    width: 70px;
-    border-radius: 50px;
-    margin-top: -50px;
-    margin-left: 260px;
-    /* margin-right: 10px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    clip-path: polygon(
-  50% 0%, 65% 15%, 85% 15%, 85% 35%, 100% 50%, 
-  85% 65%, 85% 85%, 65% 85%, 50% 100%, 35% 85%, 
-  15% 85%, 15% 65%, 0% 50%, 15% 35%, 15% 15%, 35% 15%
-); 
- }
-.cost p:hover{
-background-color: red;
-transition: 0.5s ease;
-}
- .cost a {
-    display:block;
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0px;
-    font-weight: 100;
-    text-align:center;
-    text-decoration: none;
-    color: var(--white-text);
-    border: 1px solid var(--white-text);
-    border-radius: 10px;
-    padding: 10px 20px;
-    width: 150px;
-     transition: 0.3s ease;
-    background-color: var(--button-color);
-} 
- .cost a:hover{
+
+  text-align: center;
+
   background-color: var(--hover-color);
- 
-} 
 
-.support-cont{
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 20px;
-justify-content: center;
-height: 100%;
-width: 1000px;
-margin-left: 16%;
+  height: 60px;
 
+  width: 70px;
+
+  border-radius: 50px;
+
+  margin-top: -50px;
+
+  margin-left: 260px;
+
+  /* margin-right: 10px; */
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  clip-path: polygon(
+    50% 0%,
+    65% 15%,
+    85% 15%,
+    85% 35%,
+    100% 50%,
+
+    85% 65%,
+    85% 85%,
+    65% 85%,
+    50% 100%,
+    35% 85%,
+
+    15% 85%,
+    15% 65%,
+    0% 50%,
+    15% 35%,
+    15% 15%,
+    35% 15%
+  );
 }
-.support-card{
+
+.cost p:hover {
+  background-color: red;
+
+  transition: 0.5s ease;
+}
+
+.cost a {
+  display: block;
+
+  margin-top: auto;
+
+  margin-left: auto;
+
+  margin-right: auto;
+
+  margin-bottom: 0px;
+
+  font-weight: 100;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  color: var(--white-text);
+
+  border: 1px solid var(--white-text);
+
+  border-radius: 10px;
+
+  padding: 10px 20px;
+
+  width: 150px;
+
+  transition: 0.3s ease;
+
+  background-color: var(--button-color);
+}
+
+.cost a:hover {
+  background-color: var(--hover-color);
+}
+footer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 0 0 0;
+}
+/* footer section */
+.footer-section {
+  /* max-width: var(--max-width); */
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  background: var(--card-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 12px;
+  width: 100%;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.support-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 5px 80px;
+}
+
+.support-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.support-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.map-link img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 14px;
+}
+
+.warranty-badge {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  margin: 8px 0 12px;
+}
+
+.action-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  color: var(--white-text);
+  background-color: var(--button-color);
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid var(--white-text);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s
+}
+.action-btn:hover {
+  background-color: var(--hover-color);
+}
+.contact-details {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+/* Footer poori screen lega */
+footer,
+.footer-section {
+  width: 100%;
+  margin: 0;
+  padding: 60px 0 0 0;
+  background: transparent;
+  background-color: var(--card-color);
+}
+
+/* Cards screen ke center me 1200px me rahenge */
+.support-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Black bar dono sides me bilkul edge-to-edge chipak jayega */
+.footer-box {
+  width: 100%;
+  background-color: #000000;
+  padding: 18px 20px;
+  margin-top: 50px;
+  margin-bottom: 0;
+  text-align: center;
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
-  gap: 20px;
-  border-radius: 10px;
-background-color:var(--card-color); 
-} 
+  border-top: 1px solid var(--card-color);
+}
+
+.footer-box p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--blur-text);
+}
+
+.footer-box strong {
+  color: var(--white-text);
+}
