@@ -710,6 +710,7 @@ footer,
 /* Mobile Screens (under 768px) */
 @media screen and (max-width: 768px) {
   /* 1. Header & Navigation */
+
   .navbar {
     height: auto;
     padding: 16px 20px;
@@ -744,7 +745,7 @@ footer,
 
   .box {
     display: flex;
-    flex-direction: column;
+    flex-direction:center;
     gap: 12px;
     align-items: stretch;
   }
@@ -753,10 +754,11 @@ footer,
     width: 100%;
     margin-left: 0 !important;
     text-align: center;
+    font-size: 14.3px;
   }
 
   .images img {
-    width: 260px;
+    width: 200px;
     height: auto;
     margin-top: 0;
   }
@@ -846,19 +848,43 @@ footer,
   .support-container {
     grid-template-columns: 1fr !important;
     padding: 0 16px !important;
+      margin-bottom: -30px !important;
+    margin-top: -30px !important;
   }
 
   .support-card {
     width: 100% !important;
     margin-left: 0 !important;
     height: auto !important;
+    padding: 0px 0px !important;
+  
   }
 
+.warranty-badge {
+    font-size: 16px !important;
+    margin: 6px 0 8px !important;
+    color: var(--golden-color) !important;
+  }
   .support-card img {
-    width: 100% !important;
+    width: 89% !important;
     height: auto !important;
+    display:flex;
+    justify-content:left;
+    align-items: center;
   }
-
+.action-btn{
+  padding: 5px 9px;
+  font-size: 12px;
+  margin: 5px -0px;
+}
+ .card.support-card h3{
+font-size: 20px;
+margin-bottom: 8px;
+ } 
+.contact-details{
+  font-size: 12px;
+  line-height: 1.2;
+}
   .footer-box {
     font-size: 12px;
     padding: 14px 16px;
